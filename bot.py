@@ -9,7 +9,7 @@ import sys
 #logging module is python-logger but can be done with basic logging class
 logging.basicConfig(
     filename="trading_bot.log",
-    level=logging.INFO,
+    level=logging.INFO, 
     format="%(asctime)s [%(levelname)s] %(message)s"
 )
 
@@ -17,6 +17,7 @@ class BasicBot:
     def __init__(self, api_key, api_secret, testnet=True):
         self.client = Client(api_key, api_secret, testnet=testnet)
         self.client.FUTURES_URL = "https://testnet.binancefuture.com" 
+        #big question here: if testnet is where i get my api keys, why does using official binance keys matter??
 
     def place_market_order(self, symbol, side, quantity):
         try:
